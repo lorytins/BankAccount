@@ -15,7 +15,7 @@ func NewCustomerHandler(w http.ResponseWriter, r *http.Request) {
 	var customer models.Customer
 	err := json.NewDecoder(r.Body).Decode(&customer)
 	if err != nil {
-		log.Printf("Unables to decode the request body %v", err)
+		log.Printf("Unable to decode the request body %v", err)
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode("Request fields are invalid")
 	} else {
