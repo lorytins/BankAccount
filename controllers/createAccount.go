@@ -17,7 +17,7 @@ func NewCustomerHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("Unables to decode the request body %v", err)
 		w.WriteHeader(http.StatusBadRequest)
-		json.NewEncoder(w).Encode("Request fields are invalid")
+		json.NewEncoder(w).Encode("Requests fields are invalid")
 	} else {
 		account, message := repositories.CreateAccount(&customer)
 		accountResponse := responses.CreateAccountResponse(account, customer)
